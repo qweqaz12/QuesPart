@@ -26,5 +26,12 @@ public class test : MonoBehaviour
             //win.contentPane = UIPackage.CreateObject("QuesPart", "Windows").asCom;
             win.Show();
         }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            CommonWindowPanel win = new CommonWindowPanel();
+            //win.contentPane = UIPackage.CreateObject("QuesPart", "Windows").asCom;
+            win.Show();
+        }
     }
 }
