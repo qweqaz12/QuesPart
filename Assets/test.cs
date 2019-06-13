@@ -17,7 +17,6 @@ public class test : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.X))
         {
             UI.QuestionMainPanel.CreatePanel();
-            Debug.LogError("123");   
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
