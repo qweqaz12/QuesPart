@@ -99,6 +99,7 @@ namespace UI
         public bool userIsAccuarcy;
         public questionProcessTypeEnum questionProcessType;
 
+
         public int userSelectedOption;
         public int[] trueAnwer;
     }
@@ -173,18 +174,22 @@ namespace UI
         //awake test
         void Awake()
         {
-            for (int i = 0; i < 11; i++)
+
+            string m_ques = Http.Httpcon.getinstance().GetSingleQues("http://119.29.249.112:10087/api/item/SingleQuestion/getall", 50000);
+            List<Pojo.SingleQuestion> ques = M_Utils.Utils.getinstance().parse<Pojo.SingleQuestion>(m_ques);
+       
+            for (int i = 0; i < ques.Count; i++)
             {
                 QuestionInfoClass questionItem = new QuestionInfoClass();
-                questionItem.questionDescrib = "111";
-                questionItem.questionEasyOrHard = "***";
+                questionItem.questionDescrib =ques[i].Title;
+                questionItem.questionEasyOrHard = "**";
                 questionItem.questionType = i>5?questionTypeEnum.singleChoice:questionTypeEnum.multiChoice;
                 questionItem.questionState = null;
                 questionItem.questionId = i;
-                questionItem.questionScore = 10;
+                questionItem.questionScore = int.Parse(ques[i].Score);
                 questionItem.questionNeedTimer = 30;
                 questionItem.trueAnwer = new int[] { 0,0,0,1};
-                questionItem.questionProcessType = questionProcessTypeEnum.Chemical;
+                questionItem.questionProcessType = questionProcessTypeEnum.Fire;
 
                 mListQuestion.Add(questionItem);
             }
