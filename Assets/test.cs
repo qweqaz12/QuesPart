@@ -25,6 +25,7 @@ public class test : MonoBehaviour
             CommonWindowPanel win = new CommonWindowPanel();
             //win.contentPane = UIPackage.CreateObject("QuesPart", "Windows").asCom;
             win.Show();
+            Debug.Log("start");
         }
     }
 }
