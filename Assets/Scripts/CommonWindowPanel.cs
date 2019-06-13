@@ -19,12 +19,8 @@ public class CommonWindowPanel : Window
     override protected void OnShown()
     {
         GTextField context;
-        Shape shape;
         context = contentPane.GetChild("context_text").asTextField;
-        shape = contentPane.GetChild("abililty_shape").asGraph.shape;
-        shape.DrawRegularPolygon(6, 2, shape.color, new Color32(0xFF, 0x99, 0x00, 128), shape.color, 0, new float[] { 0.6f, 0.8f, 0.6f, 0.8f, 0.6f, 0.6f });
         context.text = Logic.DataManger.getInstance().mUserScore.ToString();
-
     }
 
     override protected void DoHideAnimation()
